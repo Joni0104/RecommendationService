@@ -1,13 +1,12 @@
-package com.starbank.recommendation_service;
+package com.starbank.recommendationService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RecommendationServiceApplication {
+public class RecommendationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RecommendationServiceApplication.class, args);
+		SpringApplication.run(RecommendationApplication.class, args);
 	}
-
 }
