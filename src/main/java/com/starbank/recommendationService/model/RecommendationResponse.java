@@ -1,7 +1,6 @@
 package com.starbank.recommendationService.model;
 
 
-
 import java.util.List;
 import java.util.UUID;
 
