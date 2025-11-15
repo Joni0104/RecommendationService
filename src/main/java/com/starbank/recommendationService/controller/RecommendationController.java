@@ -1,10 +1,11 @@
 package com.starbank.recommendationService.controller;
 
-import com.starbank.recommendationService.model.RecommendationResponse;
+import com.starbank.recommendationService.model.RecommendationDto;
 import com.starbank.recommendationService.service.RecommendationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -18,13 +19,11 @@ public class RecommendationController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<RecommendationResponse> getRecommendations(
+    public ResponseEntity<List<RecommendationDto>> getRecommendations(
             @PathVariable UUID userId) {
 
         try {
-            var recommendations = recommendationService.getRecommendations(userId);
-            var response = new RecommendationResponse(userId, recommendations);
-
+            List<RecommendationDto> response = recommendationService.getRecommendations(userId);
             return ResponseEntity.ok(response);
 
         } catch (IllegalArgumentException e) {
