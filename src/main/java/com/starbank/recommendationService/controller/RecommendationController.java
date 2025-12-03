@@ -23,7 +23,7 @@ public class RecommendationController {
             @PathVariable UUID userId) {
 
         try {
-            List<RecommendationDto> response = recommendationService.getRecommendations(userId);
+            List<RecommendationDto> response = recommendationService.getRecommendations(userId).recommendations();
             return ResponseEntity.ok(response);
 
         } catch (IllegalArgumentException e) {
