@@ -16,8 +16,7 @@ export SPRING_DATASOURCE_USERNAME=postgres
 export SPRING_DATASOURCE_PASSWORD=your_password
 
 # Telegram Bot
-export TELEGRAM_BOT_TOKEN=your_bot_token
-export TELEGRAM_BOT_NAME=StarbankRecommendationBot
+export TELEGRAM_BOT_TOKEN=8372520281:AAFop84jXsS6UqStVGZ-5UaMREeqDsXgSbA
+export TELEGRAM_BOT_NAME=MyStarbankRecommendationBot
 
 # H2 Database (read-only)
-# Файл transaction.mv.db должен быть в ./data/
