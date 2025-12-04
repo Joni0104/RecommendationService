@@ -1,7 +1,6 @@
 package com.starbank.recommendationService.service;
 
 import com.starbank.recommendationService.model.RecommendationDto;
-import com.starbank.recommendationService.model.RecommendationResponse;
 import com.starbank.recommendationService.model.entity.DynamicRuleEntity;
 import com.starbank.recommendationService.repository.DynamicRuleRepository;
 import com.starbank.recommendationService.rule.RecommendationRuleSet;
@@ -26,7 +25,7 @@ public class RecommendationService {
         this.dynamicRuleService = dynamicRuleService;
     }
 
-    public RecommendationResponse getRecommendations(UUID userId) {
+    public List<RecommendationDto> getRecommendations(UUID userId) {
         if (userId == null) {
             throw new IllegalArgumentException("User ID cannot be null");
         }
@@ -39,14 +38,10 @@ public class RecommendationService {
         // Динамические правила
         recommendations.addAll(getDynamicRecommendations(userId));
 
-        return new RecommendationResponse(userId, recommendations);
+        return recommendations;
     }
 
     private List<RecommendationDto> getStaticRecommendations(UUID userId) {
-        if (staticRuleSets == null) {
-            return List.of();
-        }
-
         return staticRuleSets.stream()
                 .map(ruleSet -> ruleSet.checkRules(userId))
                 .filter(optional -> optional.isPresent())
